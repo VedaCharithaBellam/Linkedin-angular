@@ -1,0 +1,18 @@
+<!--<div class="row" style="padding-left: 15px;">
+        <button class="btn btn-success"> New Skill</button>
+</div>-->
+<br>
+<div class="row" style="background-color: white;" >
+        <h4>SKILLS</h4>
+        <a href="#" class="list-group-item clearfix" 
+        *ngFor="let skill of skills">
+            <!--<div class="pull-left">-->
+                <h4 class="list-group-item-heading">{{ skill.name }}</h4>
+                <p class="list-group-item-text">{{ skill.description }}</p>
+            <!--<span class="pull-right" >
+                <img src="{{ skill.imagePath }}" alt="{{ skill.name }}" class="img-responsive" style="max-height:50px;">
+            </span>-->
+        </a>
+        <br>
+        <button class="btn btn-success"> New Skill</button>
+    </div>

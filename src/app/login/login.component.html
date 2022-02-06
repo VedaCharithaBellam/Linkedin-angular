@@ -1,0 +1,39 @@
+<html>
+  <body>
+
+  <div class="container-fluid"  >
+
+
+    <section>
+      <form #loginform="ngForm" (ngSubmit)="loginUser()">
+        <small class="text-danger">{{ msg}}</small>
+      <img src="https://logos-world.net/wp-content/uploads/2020/04/Linkedin-Logo-2011-2019.png">
+      <!--<h2 style="color: dodgerblue"><b>LOG IN</b></h2>-->
+      <input type="text" name="email" placeholder="Email" required [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+             [class.is-invalid]="email.invalid && email.touched"
+      >
+<!--        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required field</small>-->
+      <div *ngIf="email.errors && (email.invalid && email.touched)">
+        <small  class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
+        <small class="text-danger" *ngIf="email.errors.pattern">Enter valid emailId</small>
+      </div>
+        <br>
+      <input type="password" name="password" placeholder="Password" required [(ngModel)]="user.password" #password="ngModel"
+      [class.is-invalid]="password.invalid && password.touched"
+      >
+        <div *ngIf="password.errors && (password.invalid && password.touched)">
+        <small  class="text-danger" *ngIf="password.errors.required">Password is required field</small>
+        </div>
+          <br>
+      <input type="submit" value="Login" [disabled]="loginform.form.invalid"  >
+      <p>Not a member?<a (click)="goToRegistration()"> Sign Up</a></p>
+      </form>
+    </section>
+  </div>
+  <router-outlet></router-outlet>
+  <br>
+  <br>
+  <br>
+  <br>
+  </body>
+</html>
