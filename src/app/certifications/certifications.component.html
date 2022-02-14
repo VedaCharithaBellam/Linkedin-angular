@@ -1,0 +1,36 @@
+<body>
+<app-header></app-header>
+<br>
+<div class="container">
+  <h2>CERTIFICATIONS <a (click)="goToAddCertification()" style="float: right;color: black"><img src="https://cdn-icons-png.flaticon.com/128/359/359849.png" style="height: 25px;width: 25px"></a></h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+<!--      <th>Certification Id</th>-->
+      <th>Certification Name</th>
+      <th>Certification Authorization</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let certification of _certificationlist">
+<!--      <td>{{ certification.certification_id }}</td>-->
+      <td>{{ certification.certification_name }}</td>
+      <td>{{ certification.certification_desc }}</td>
+      <td>
+
+        <button  (click)="goToEditCertification(certification.certification_id)"><img src="https://cdn-icons.flaticon.com/png/128/2824/premium/2824318.png?token=exp=1644310219~hmac=4865a415dbf24e0689d4ffb976979abc" style="height: 20px;width: 18px;"></button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-danger"(click)="deleteCertification(certification.certification_id)">Delete</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<br>
+<br>
+<br>
+<router-outlet></router-outlet>
+</body>

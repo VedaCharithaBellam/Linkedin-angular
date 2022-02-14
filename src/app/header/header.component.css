@@ -1,5 +1,5 @@
 .navbar{
-    background-color: ivory;
+    background-color: white;
 }
 body{
   background-color: black;
@@ -28,7 +28,7 @@ input{
 }
 li{
     display: inline;
-    font-size: 15px;
+    font-size: 20px;
     padding: 15px;
 
 }

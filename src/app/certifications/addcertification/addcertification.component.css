@@ -1,0 +1,35 @@
+div{
+  background-color: skyblue;
+  display: block;
+  height: 100%;
+  border: 30px;
+  padding: 80px;
+  width: 60%;
+  margin-top: 80px;
+  margin-left: 280px;
+}
+section{
+  background-color: whitesmoke;
+  border-radius: 5%;
+
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  margin: auto;
+  padding: 40px;
+}
+input{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  background: black;
+  color: white;
+}
+

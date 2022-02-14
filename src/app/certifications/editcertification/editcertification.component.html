@@ -1,0 +1,17 @@
+<body>
+<div>
+  <section>
+    <form  #certificationform="ngForm" (ngSubmit)="updatecertificationformsubmit()">
+      <h2>Edit certification</h2>
+<!--      <input type="text" class="form-control" placeholder="id" required [(ngModel)]="certification.certification_id" name="certification_id" #certification_id="ngModel">-->
+      <input type="text" class="form-control" placeholder="certification name" required [(ngModel)]="certification.certification_name" name="certification_name" #certification_name="ngModel">
+      <input type="text" class="form-control" placeholder="certification organisation" required [(ngModel)]="certification.certification_desc" name="certification_desc" #certification_desc="ngModel">
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="certificationform.form.invalid">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>

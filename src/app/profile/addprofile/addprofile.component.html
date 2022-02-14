@@ -1,0 +1,20 @@
+<body>
+<div>
+  <section>
+    <form  #profileform="ngForm" (ngSubmit)="addprofileformsubmit()">
+
+      <h2 style="color: white">Add your profile</h2>
+      <input type="text" class="form-control" placeholder="Your current occupation" required [(ngModel)]="profile.occupation" name="occupation" #occupation="ngModel">
+      <input type="text" class="form-control" placeholder="Your current organisation" required [(ngModel)]="profile.organisation" name="organisation" #organisation="ngModel">
+      <input type="text-area" class="form-control" placeholder="About" required [(ngModel)]="profile.about" name="about" #about="ngModel">
+      <input type="text" class="form-control" placeholder="image-url" required [(ngModel)]="profile.image" name="image" #image="ngModel">
+
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="profileform.form.invalid">Submit</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>

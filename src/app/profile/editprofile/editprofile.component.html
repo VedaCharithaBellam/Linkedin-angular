@@ -1,0 +1,20 @@
+<body>
+<div>
+  <section>
+    <form  #profileform="ngForm" (ngSubmit)="updateprofileformsubmit()">
+      <h2>Edit your profile</h2>
+      <input type="text" class="form-control" placeholder="{{ profile.occupation }} " required [(ngModel)]="profile.occupation " name="occupation " #occupation="ngModel">
+      <input type="text" class="form-control" placeholder="{{ profile.organisation }} " required [(ngModel)]="profile.organisation" name="organisation" #organisation="ngModel">
+      <input type="text" class="form-control" placeholder="{{ profile.image}} " required [(ngModel)]="profile.image" name="image" #image="ngModel">
+      <input type="text-area" class="form-control" placeholder="{{ profile.about}} " required [(ngModel)]="profile.about" name="about" #about="ngModel">
+
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="profileform.form.invalid">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>
+

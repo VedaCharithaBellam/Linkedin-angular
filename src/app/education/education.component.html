@@ -1,0 +1,22 @@
+<app-header></app-header>
+<body>
+  <div>
+    <h3 style="color: white;padding-left: 10px">EDUCATION<a (click)="goToAddEducation()" style="float: right"><img src="https://img.icons8.com/color/2x/add.png" style="height: 25px;width: 25px"></a></h3>
+
+    <br>
+    <section class="list-group-item clearfix" style="background-color: white;" *ngFor="let education of _educationlist">
+
+      <a type="button"  style="float: right" (click)="deleteEducation(education.edu_id)" ><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/2x/external-delete-multimedia-kiranshastry-solid-kiranshastry.png" style="width: 20px;height: 20px;"></a>&nbsp;&nbsp;
+      <a type="button" style="float: right" (click)="goToEditEducation(education.edu_id)"><img src="https://img.icons8.com/material-sharp/344/edit--v1.png" style="height: 20px;width: 20px;"></a>
+
+      <h4 class="list-group-item-heading"><strong>Institution:  <u>{{education.edu_org}}</u></strong></h4>
+      <h5><i>Specialization: {{education.edu_stream}}</i></h5>
+      <br>
+      <p>Working period: From {{education.edu_start_date| date: 'dd/MM/yyyy'}} To {{education.edu_end_date| date: 'dd/MM/yyyy'}}</p>
+    </section>
+    <br>
+  </div>
+  <br>
+  <router-outlet></router-outlet>
+
+</body>

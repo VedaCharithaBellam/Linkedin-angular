@@ -1,0 +1,19 @@
+<body>
+<div>
+  <section>
+    <form  #experienceform="ngForm" (ngSubmit)="updateexperienceformsubmit()">
+      <h2>Edit experience</h2>
+      <!--      <input type="text" class="form-control" placeholder="id" required [(ngModel)]="certification.certification_id" name="certification_id" #certification_id="ngModel">-->
+      <input type="text" class="form-control" placeholder="{{ experience.exp_org }} Experience name" required [(ngModel)]="experience.exp_org " name="exp_org " #exp_org="ngModel">
+      <input type="text" class="form-control" placeholder="{{ experience.exp_role }} Experience description" required [(ngModel)]="experience.exp_role" name="exp_role" #exp_role="ngModel">
+      <input type="text" class="form-control" placeholder="{{ experience.exp_desc }} Experience description" required [(ngModel)]="experience.exp_desc" name="exp_desc" #exp_desc="ngModel">
+
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="experienceform.form.invalid">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>

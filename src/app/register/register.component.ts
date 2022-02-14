@@ -13,7 +13,8 @@ export class RegisterComponent implements OnInit {
 
   // @ts-ignore
   user = new User();
-  msg='';
+  msg: boolean = false;
+  alert: boolean=false;
   constructor( private _service : RegistrationService, private  _router : Router ) { }
   ngOnInit(): void {
 
@@ -24,11 +25,13 @@ export class RegisterComponent implements OnInit {
     this._service.registerUserFromRemote(this.user).subscribe(
       data =>{
         console.log("response received");
-        this._router.navigate(['/login'])
+        // this._router.navigate(['/login'])
+        this.msg=true
+
       },
       error  => {
-        console.log(error);
-        this.msg = error.error;
+        //console.log(error);
+        this.alert = true;
       }
     )
 

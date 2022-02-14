@@ -1,0 +1,20 @@
+<body>
+<div>
+  <section>
+    <form  #educationform="ngForm" (ngSubmit)="updateeducationformsubmit()">
+      <h2>Edit education</h2>
+      <!--      <input type="text" class="form-control" placeholder="id" required [(ngModel)]="certification.certification_id" name="certification_id" #certification_id="ngModel">-->
+      <input type="text" class="form-control" placeholder="Name of the institute" required [(ngModel)]="education.edu_org" name="edu_org" #edu_org="ngModel">
+      <input type="text" class="form-control" placeholder="Specialization" required [(ngModel)]="education.edu_stream" name="edu_stream" #edu_stream="ngModel">
+      <input type="date" class="form-control" placeholder=" Start Date" required [(ngModel)]="education.edu_start_date" name="education.edu_start_date" #education.edu_start_date="ngModel">
+      <input type="date" class="form-control" placeholder=" End Date" required [(ngModel)]="education.edu_end_date" name="education.edu_end_date" #education.edu_end_date="ngModel">
+
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="educationform.form.invalid">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>

@@ -1,15 +1,16 @@
 <body>
+<br>
   <div class="container-fluid">
-    <h2><b>SIGN UP</b></h2>
-    <br>
+    <h2><b><u>SIGN UP</u></b></h2>
   <form #registerform="ngForm" (ngSubmit)="registerUser()">
-<!--  <small [class.text-danger]="msg.status==500">{{ msg.message }}</small>-->
-
-<!--    <div>-->
-<!--      <small class="text-danger" [class.d-none]="username.valid || username.untouched" >User Name is a required field</small>-->
-<!--    </div>-->
-    <br>
-
+    <div *ngIf="msg" class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Please login at the bottom
+    </div>
+    <div *ngIf="alert" class="alert alert-warning alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Email already exists!</strong>
+    </div>
     <input type="email" name="email" class="form-control" placeholder=" Enter Email" required [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
            [class.is-invalid]="email.invalid && email.touched"
     >
@@ -30,18 +31,22 @@
       <small  class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
     </div>
     <br>
-    <input type="password" name="repassword" placeholder="Re-enter Password" required [(ngModel)] ="user.password" #repassword="ngModel"
-           [class.is-invalid]="repassword.invalid && repassword.touched"
-    >
-    <div *ngIf="repassword.errors && (repassword.invalid && repassword.touched)">
-      <small  class="text-danger" [class.d-none]="(repassword.value == password.value) || repassword.untouched">Password does not match</small>
-    </div>
+<!--    <input type="password" name="repassword" placeholder="Re-enter Password" required  #repassword="ngModel">-->
+
+<!--      <small  class="text-danger" [class.d-none]="(repassword.value == password.value) || repassword.untouched">Password does not match</small>-->
+
     <br>
     <br>
 
-    <input type="submit" value="SUBMIT" [disabled]="registerform.form.invalid">
-    <small [routerLink]="['/login']">Existing user ? Login here</small>
+    <input type="submit" value="SUBMIT" [disabled]="registerform.form.invalid" >
+    <br>
+    <br>
+    <h4 [routerLink]="['/login']">Existing user ? <u>Login here</u></h4>
   </form>
-  </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
 <router-outlet></router-outlet>
 </body>

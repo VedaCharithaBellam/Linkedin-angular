@@ -1,5 +1,9 @@
+.header{
+  width: 1000px;
 
-div{
+}
+
+.row{
     padding: 30px;
     /*padding-left: 15px;
     padding-right: 15px;*/

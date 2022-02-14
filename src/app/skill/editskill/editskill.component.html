@@ -1,0 +1,23 @@
+<body>
+<div>
+  <section>
+    <form  #educationform="ngForm" (ngSubmit)="updateskillformsubmit()">
+      <h2>Edit certification</h2>
+      <!--      <input type="text" class="form-control" placeholder="id" required [(ngModel)]="certification.certification_id" name="certification_id" #certification_id="ngModel">-->
+      <input type="text" class="form-control" placeholder="Name of the skill" required [(ngModel)]="skill.skill_name" name="skill_name" #skill_name="ngModel">
+<!--      <input type="text" class="form-control" placeholder="Specialization" required [(ngModel)]="education.edu_stream" name="edu_stream" #edu_stream="ngModel">-->
+      <b>Difficulty:</b>
+      <select name="skill_level" class="form-control" [(ngModel)]="skill.skill_level" #skill_level="ngModel">
+        <option value="Advanced" >Advanced</option>
+        <option>Moderate</option>
+        <option>Beginner</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="educationform.form.invalid">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>

@@ -1,12 +1,25 @@
-div{
-    padding: 30px;
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-    border-radius: 20px;
-    background-color: white;
-    width: 800px;
-    border-left: 40px;
-    margin-left: 40px;
-    
+.container{
+  padding: 30px;
+  /*padding-left: 15px;
+  padding-right: 15px;*/
+  border-radius: 20px;
+  background-color: white;
+  width: 1000px;
+  border-left: 40px;
+  margin-left: 40px;
 
+
+}
+body{
+  background-color: black;
+}
+section{
+
+  background-image: url("https://images.ctfassets.net/7thvzrs93dvf/wpImage18643/2f45c72db7876d2f40623a8b09a88b17/linkedin-default-background-cover-photo-1.png?w=790&h=196&q=90&fm=png");
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  padding: 20px;
+  width: 1000px;
+  border-left: 40px;
+  margin-left: 40px;
 }

@@ -1,0 +1,22 @@
+<app-header></app-header>
+<body>
+  <div>
+    <h3 style="color: white;padding-left: 10px">EXPERIENCES<a (click)="goToAddExperience()" style="float: right"><img src="https://img.icons8.com/color/2x/add.png" style="height: 25px;width: 25px"></a></h3>
+
+    <br>
+    <section class="list-group-item clearfix" style="background-color: white;" *ngFor="let experience of _experiencelist">
+<!--             *ngFor="let experience of experiences"-->
+
+      <button type="button"  style="float: right" (click)="deleteExperience(experience.exp_id)"><img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/2x/external-delete-multimedia-kiranshastry-solid-kiranshastry.png" style="width: 20px;height: 20px;"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" style="float: right" (click)="goToEditExperience(experience.exp_id)"><img src="https://img.icons8.com/material-sharp/344/edit--v1.png" style="height: 20px;width: 20px;"></button>
+
+      <h4 class="list-group-item-heading"><strong>{{experience.exp_org}}</strong></h4>
+      <h5><i>{{experience.exp_role}}</i></h5>
+      <p class="list-group-item-text">{{experience.exp_desc}}</p>
+      <p>Working period: From {{experience.exp_start_date| date: 'dd/MM/yyyy'}} To {{experience.exp_end_date| date: 'dd/MM/yyyy'}}</p>
+    </section>
+    <br>
+  </div>
+<br>
+<router-outlet></router-outlet>
+</body>

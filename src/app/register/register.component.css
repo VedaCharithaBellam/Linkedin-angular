@@ -2,13 +2,15 @@ body{
   background-color: black;
 }
 .container-fluid{
-  background-image: url("https://comptoirgranite.com/wp-content/uploads/2017/03/White-Crystalo-600x525.jpg");
+  background-color: white;
+  border: 5px solid black;
+  border-style: solid;
+  border-width: thick;
   display: block;
-  border: 30px;
   height: 100%;
   border: 30px;
   padding: 80px;
-  width: 60%;
+  width: 40%;
   margin-top: 80px;
 }
 input[type=submit] {

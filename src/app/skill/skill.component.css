@@ -1,0 +1,15 @@
+div{
+  padding: 30px;
+  padding-left: 30px;
+  /*border-radius: 20px;*/
+
+  width: 700px;
+  border-left: 100px;
+  margin-left: 60px;
+}
+body{
+  background-color: black;
+}
+a{
+  padding: 10px;
+}

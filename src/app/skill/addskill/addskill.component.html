@@ -1,0 +1,22 @@
+<body>
+<div>
+  <section>
+    <form  #skillform="ngForm" (ngSubmit)="addskillformsubmit()">
+      {{user | json}}
+      <h2 style="color: white">Add your skill</h2>
+      <input type="text" class="form-control" placeholder="Skill name" required [(ngModel)]="skill.skill_name" name="skill name" #skill_name="ngModel">
+      <b>Difficulty:</b>
+      <select name="skill_level" class="form-control" [(ngModel)]="skill.skill_level" #skill_level="ngModel">
+        <option value="Advanced" >Advanced</option>
+        <option>Moderate</option>
+        <option>Beginner</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="skillform.form.invalid">Submit</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
+    </form>
+  </section>
+</div>
+
+</body>

@@ -24,15 +24,21 @@ export class LoginComponent implements OnInit {
     this._service.loginUserFromRemote(this.user).subscribe(
      data =>{
        console.log("response received"),
-       this._router.navigate(['/header'])
+         this._service.user=data,
+         console.log(this._service.user),
+         localStorage.setItem('userData', JSON.stringify(this._service.user)),
+       this._router.navigate(['/profile'])
      },
         error  => {
-          console.log("exception occured");
+          console.log(error);
           this.msg = "Bad credentials, please enter valid email and password";
         }
     )
   }
 
+  //
+  // userData = JSON.parse(localStorage.getItem('userData')) as User;
+  //
   goToRegistration() {
     this._router.navigate(['/register'])
   }
