@@ -34,13 +34,14 @@ export class ExperienceComponent implements OnInit {
   }
 
   deleteExperience(exp_id: number) {
+    this.ngOnInit();
     this._service.deleteExperienceByidFromRemote(exp_id).subscribe(
       data=> {console.debug("deleted succesfully");
         this._router.navigate(['/experience']);
       },
       error=> console.log(error)
     )
-    window.location.reload()
+    this.ngOnInit();
   }
 
 }

@@ -1,19 +1,24 @@
 <body>
 <div>
   <section>
-    <form  #skillform="ngForm" (ngSubmit)="addskillformsubmit()">
+    <form  [formGroup]="skillform" (ngSubmit)="addskillformsubmit()">
       {{user | json}}
       <h2 style="color: white">Add your skill</h2>
-      <input type="text" class="form-control" placeholder="Skill name" required [(ngModel)]="skill.skill_name" name="skill name" #skill_name="ngModel">
+      <input type="text" class="form-control" placeholder="Skill name" required formControlName="skill_name" >
+      <span
+        *ngIf="!skillform.get('skill_name').valid && skillform.get('skill_name').touched" class="help-block" >
+          Please enter a valid name
+        </span>
       <b>Difficulty:</b>
-      <select name="skill_level" class="form-control" [(ngModel)]="skill.skill_level" #skill_level="ngModel">
+      <select name="skill_level" class="form-control" formControlName="skill_level" required>
+        <option value="" selected="selected" hidden="hidden">Choose difficulty</option>
         <option value="Advanced" >Advanced</option>
         <option>Moderate</option>
         <option>Beginner</option>
       </select>
       <br>
       <br>
-      <button type="submit" class="btn btn-success" [disabled]="skillform.form.invalid">Submit</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success" [disabled]="skillform.invalid">Submit</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
     </form>
   </section>

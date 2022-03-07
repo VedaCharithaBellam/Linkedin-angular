@@ -1,15 +1,24 @@
 <body>
 <div>
   <section>
-    <form  #certificationform="ngForm" (ngSubmit)="addcertificationformsubmit()">
+    <form  [formGroup]="certificationform" (ngSubmit)="addcertificationformsubmit()">
       {{user | json}}
       <h2>Add your certification</h2>
 <!--      <input type="text" class="form-control" placeholder="id" required [(ngModel)]="certification.certification_id" name="certification_id" #certification_id="ngModel">-->
-      <input type="text" class="form-control" placeholder="Certification name" required [(ngModel)]="certification.certification_name" name="certification_name" #certification_name="ngModel">
-      <input type="text" class="form-control" placeholder="Certificate Authorization" required [(ngModel)]="certification.certification_desc" name="certification_name" #certification_desc="ngModel">
+      <input type="text" class="form-control" placeholder="Certification name" required formControlName="certification_name">
+      <span
+        *ngIf="!certificationform.get('certification_name').valid && certificationform.get('certification_name').touched" class="help-block" >
+          Please enter a valid certification name!
+        </span>
+      <input type="text" class="form-control" placeholder="Certificate Authorization" required formControlName="certification_desc">
+      <span
+        *ngIf="!certificationform.get('certification_desc').valid && certificationform.get('certification_desc').touched" class="help-block" >
+          Please enter a valid authorization
+        </span>
       <br>
+
       <br>
-      <button type="submit" class="btn btn-success" [disabled]="certificationform.form.invalid">Submit</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success" [disabled]="certificationform.invalid">Submit</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
     </form>
   </section>

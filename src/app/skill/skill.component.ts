@@ -34,13 +34,14 @@ export class SkillComponent implements OnInit {
   }
 
   deleteSkill(skill_id: number) {
+    this.ngOnInit();
     this._service.deleteSkillByidFromRemote(skill_id).subscribe(
       data=> {console.debug("deleted succesfully");
         this._router.navigate(['/profile']);
       },
       error=> console.log(error)
     )
-    window.location.reload()
+    this.ngOnInit();
   }
 
 }

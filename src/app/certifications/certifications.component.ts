@@ -15,6 +15,9 @@ export class CertificationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUserDetails();
+  }
+  getUserDetails(){
     this._service.fetchCertificationListFromRemote().subscribe(
       data=>{console.log("response recieved"),
         console.log(data),
@@ -33,13 +36,17 @@ export class CertificationsComponent implements OnInit {
     this._router.navigate(['/editcertification', certification_id]);
   }
 
+
   deleteCertification(certification_id: number) {
+    this.getUserDetails()
     this._service.deleteCertificationByidFromRemote(certification_id).subscribe(
-      data=> {console.debug("deleted succesfully");
-                    this._router.navigate(['/certification']);
-                  },
-      error=> console.log(error)
+      data=> { this._certificationlist=data;
+
+        },
+      error=> {console.log(error);},
     )
-    window.location.reload()
+    this.getUserDetails();
+
   }
+
 }

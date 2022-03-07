@@ -30,13 +30,13 @@ export class EditcertificationComponent implements OnInit {
     this._service.addCertificationToRemote(this.certification).subscribe(
       data=>{
         console.log("data added succesfully");
-        this._router.navigate(['/certifications']);
+        this._router.navigate(['/profile']);
       },
       error=>console.log(error)
     )
   }
 
   gotolist() {
-    this._router.navigate(['/certifications']);
+    this._router.navigate(['/profile']);
   }
 }

@@ -36,9 +36,9 @@ input[type=submit] {
   color: white;
   cursor: pointer;
 }
-input[type=submit]:hover {
-  background-color: darkturquoise;
-}
+/*input[type=submit]:hover {*/
+/*  background-color: darkturquoise;*/
+/*}*/
 
 input{
   width: 100%;

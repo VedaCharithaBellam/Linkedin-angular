@@ -1,11 +1,17 @@
 div{
-  padding: 30px;
-  padding-left: 30px;
-  /*border-radius: 20px;*/
+  border-radius: 20px;
 
-  width: 700px;
-  border-left: 100px;
-  margin-left: 60px;
+  width: 1000px;
+  background-color: white;
+  border-left: 40px;
+  margin-left: 40px;
+}
+section{
+
+  background-color: white;
+  width: 800px;
+  padding: 30px;
+  color: black;
 }
 body{
   background-color: black;

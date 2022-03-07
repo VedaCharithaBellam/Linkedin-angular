@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {RegistrationService} from "../registration.service";
 import {User} from "../user";
 import {Route, Router} from "@angular/router";
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,13 +16,26 @@ export class LoginComponent implements OnInit {
   msg='';
   constructor( private _service : RegistrationService, private  _router : Router ) { }
 
+  loginform: FormGroup;
   ngOnInit(): void {
+    this.loginform=new FormGroup({
+      "email": new FormControl("", [Validators.required, Validators.email]),
+      "password": new FormControl("", [
+        Validators.required,
+        Validators.pattern(
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+        ),
+        Validators.minLength(8),
+      ],),
+    });
+
   }
   onGoToSignUpPage(){
     alert("Alert Message");
   }
+
   loginUser(){
-    this._service.loginUserFromRemote(this.user).subscribe(
+    this._service.loginUserFromRemote(this.loginform.value).subscribe(
      data =>{
        console.log("response received"),
          this._service.user=data,

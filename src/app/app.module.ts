@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -50,13 +50,15 @@ import { AddprofileComponent } from './profile/addprofile/addprofile.component';
     EditprofileComponent,
     AddprofileComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    appRoutingModule,
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        appRoutingModule,
+        ReactiveFormsModule,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

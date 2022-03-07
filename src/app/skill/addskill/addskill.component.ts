@@ -3,6 +3,7 @@ import {User} from "../../user";
 import {Router} from "@angular/router";
 import {Skill} from "../../skill";
 import {SkillService} from "../../skill.service";
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-addskill',
@@ -15,21 +16,26 @@ export class AddskillComponent implements OnInit {
   skill = new Skill();
   user: User;
   constructor(private _service: SkillService , private _router:Router) { }
-  ngOnInit( ){
-  }
+  skillform: FormGroup;
+  ngOnInit(): void {
+    this.skillform=new FormGroup({
+      "skill_name": new FormControl("", Validators.required),
+      "skill_level": new FormControl("", Validators.required,)
+    });
 
+  }
   addskillformsubmit() {
-    this._service.addSkillToRemote(this.skill).subscribe(
+    this._service.addSkillToRemote(this.skillform.value).subscribe(
       data=>{
         console.log("data added succesfully");
-        this._router.navigate(['/skill']);
+        this._router.navigate(['/profile']);
       },
       error=>console.log(error)
     )
   }
 
   gotolist() {
-    this._router.navigate(['/skill']);
+    this._router.navigate(['/profile']);
   }
 
 

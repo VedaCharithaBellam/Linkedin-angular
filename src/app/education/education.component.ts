@@ -38,13 +38,15 @@ export class EducationComponent implements OnInit {
   }
 
   deleteEducation(edu_id: number) {
+    this.ngOnInit()
     this._service.deleteEducationByidFromRemote(edu_id).subscribe(
       data=> {console.debug("deleted succesfully");
         this._router.navigate(['/experience']);
       },
       error=> console.log(error)
     )
-    window.location.reload()
+    this.ngOnInit();
+
   }
 
 

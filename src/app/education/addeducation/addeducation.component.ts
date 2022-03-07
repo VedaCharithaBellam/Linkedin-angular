@@ -5,6 +5,7 @@ import {ExperienceService} from "../../experience.service";
 import {Router} from "@angular/router";
 import {Education} from "../../education";
 import {EducationService} from "../../education.service";
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-addeducation',
@@ -17,21 +18,31 @@ export class AddeducationComponent implements OnInit {
   education = new Education();
   user: User;
   constructor(private _service: EducationService , private _router:Router) { }
-  ngOnInit( ){
+  educationform: FormGroup;
+  start_date: any;
+  ngOnInit(): void {
+    this.educationform=new FormGroup({
+      "edu_org": new FormControl("", Validators.required),
+      "edu_stream": new FormControl("", Validators.required),
+      "edu_start_date": new FormControl("", Validators.required),
+      "edu_end_date": new FormControl("", Validators.required)
+
+    });
+
   }
 
   addeducationformsubmit() {
-    this._service.addEducationToRemote(this.education).subscribe(
+    this._service.addEducationToRemote(this.educationform.value).subscribe(
       data=>{
         console.log("data added succesfully");
-        this._router.navigate(['/education']);
+        this._router.navigate(['/profile']);
       },
       error=>console.log(error)
     )
   }
 
   gotolist() {
-    this._router.navigate(['/education']);
+    this._router.navigate(['/profile']);
   }
 
 

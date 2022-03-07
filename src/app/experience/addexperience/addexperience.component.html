@@ -1,19 +1,37 @@
 <body>
 <div>
   <section>
-    <form  #experienceform="ngForm" (ngSubmit)="addexperienceformsubmit()">
+    <form  [formGroup]="experienceform" (ngSubmit)="addexperienceformsubmit()">
       {{user | json}}
       <h2 style="color: white">Add your experience</h2>
-      <!--      <input type="text" class="form-control" placeholder="id" required [(ngModel)]="certification.certification_id" name="certification_id" #certification_id="ngModel">-->
-      <input type="text" class="form-control" placeholder="Organisation" required [(ngModel)]="experience.exp_org" name="exp_org" #exp_org="ngModel">
-      <input type="text" class="form-control" placeholder="Your Role" required [(ngModel)]="experience.exp_role" name="exp_role" #exp_role="ngModel">
-      <input type="text" class="form-control" placeholder="Work description" required [(ngModel)]="experience.exp_desc" name="exp_desc" #exp_desc="ngModel">
-      <strong>Start Date</strong><input type="date" class="form-control" placeholder="start date" required [(ngModel)]="experience.exp_start_date" name="exp_start_date" #exp_start_date="ngModel">
-      <strong>End Date</strong><input type="date" class="form-control" placeholder="end date" required [(ngModel)]="experience.exp_end_date" name="exp_end_date" #exp_end_date="ngModel">
-
+      <input type="text" class="form-control" placeholder="Organisation" required formControlName="exp_org" >
+      <span
+        *ngIf="!experienceform.get('exp_org').valid && experienceform.get('exp_org').touched" class="help-block" >
+          This field is required!
+        </span>
+      <input type="text" class="form-control" placeholder="Your Role" required formControlName="exp_role" >
+      <span
+        *ngIf="!experienceform.get('exp_role').valid && experienceform.get('exp_role').touched" class="help-block" >
+          This field is required!
+        </span>
+      <input type="text" class="form-control" placeholder="Work description" required formControlName="exp_desc">
+      <span
+        *ngIf="!experienceform.get('exp_desc').valid && experienceform.get('exp_desc').touched" class="help-block" >
+          This field is required!
+        </span>
+      <strong>Start Date</strong><input type="date" class="form-control" placeholder="start date" required formControlName="exp_start_date" >
+      <span
+        *ngIf="!experienceform.get('exp_start_date').valid && experienceform.get('exp_start_date').touched" class="help-block" >
+          This field is required!
+        </span>
+      <strong>End Date</strong><input type="date" class="form-control" placeholder="end date" required formControlName="exp_end_date">
+      <span
+        *ngIf="!experienceform.get('exp_end_date').valid && experienceform.get('exp_end_date').touched" class="help-block" >
+          This field is required!
+        </span>
       <br>
       <br>
-      <button type="submit" class="btn btn-success" [disabled]="experienceform.form.invalid">Submit</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success" [disabled]="experienceform.invalid">Submit</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-primary" (click)="gotolist()">Back</button>
     </form>
   </section>

@@ -29,13 +29,13 @@ export class EditeduacationComponent implements OnInit {
     this._service.addEducationToRemote(this.education).subscribe(
       data=>{
         console.log("data added succesfully");
-        this._router.navigate(['/education']);
+        this._router.navigate(['/profile']);
       },
       error=>console.log(error)
     )
   }
 
   gotolist() {
-    this._router.navigate(['/education']);
+    this._router.navigate(['/profile']);
   }
 }

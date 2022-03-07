@@ -13,7 +13,9 @@ export class ProfileComponent implements OnInit {
 
 
   _profilelist: Profile[];
+
   msg: boolean = false;
+
   constructor(private _service:ProfileService, private  _router : Router) {
   }
 
@@ -26,6 +28,8 @@ export class ProfileComponent implements OnInit {
       error=>console.log("exception occured")
     )
   }
+
+
 
   goToAddProfile(){
     this._router.navigate(['/addprofile']);

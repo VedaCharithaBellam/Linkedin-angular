@@ -2,46 +2,44 @@
 <br>
   <div class="container-fluid">
     <h2><b><u>SIGN UP</u></b></h2>
-  <form #registerform="ngForm" (ngSubmit)="registerUser()">
-    <div *ngIf="msg" class="alert alert-success alert-dismissible">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> Please login at the bottom
-    </div>
-    <div *ngIf="alert" class="alert alert-warning alert-dismissible">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Email already exists!</strong>
-    </div>
-    <input type="email" name="email" class="form-control" placeholder=" Enter Email" required [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-           [class.is-invalid]="email.invalid && email.touched"
+  <form [formGroup]="registerform" (ngSubmit)="registerUser()">
+      <div *ngIf="msg" class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Please login at the bottom
+      </div>
+      <div *ngIf="alert" class="alert alert-warning alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Email already exists!</strong>
+      </div>
+      <br>
+
+      <input type="text"  class="form-control" placeholder="Email" formControlName="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+         <span
+        *ngIf="!registerform.get('email').valid && registerform.get('email').touched" class="help-block" >
+            Please enter a valid email
+          </span>
+      <br>
+      <input type="text"  class="form-control" placeholder="Your Name" formControlName="username" required >
+        <span
+          *ngIf="!registerform.get('username').valid && registerform.get('username').touched" class="help-block" >
+             Enter a valid username
+            </span>
+      <br>
+      <input type="password" placeholder="Password" class="form-control" required  formControlName="password" >
+    <span
+      style="color: red"
+      *ngIf="!registerform.get('password').valid && registerform.get('password').touched"
     >
-    <div *ngIf="email.errors && (email.invalid && email.touched)">
-      <small  class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
-      <small class="text-danger" *ngIf="email.errors.pattern">Enter valid emailId</small>
-    </div>
-    <br>
+          Password must contain more than 8 characters, 1 upper case letter, and 1
+          special character
+        </span>
+      <br>
+      <br>
 
-    <input type="text" name="username" class="form-control" placeholder=" Enter Your Name" required [(ngModel)]="user.username" #username="ngModel"
-           [class.is-invalid]="username.invalid && username.touched"
-    >
-    <br>
-    <input type="password" name="password"  class="form-control" placeholder=" Enter Password" required [(ngModel)]="user.password" #password="ngModel"
-           [class.is-invalid]="password.invalid && password.touched"
-    >
-    <div *ngIf="password.errors && (password.invalid && password.touched)">
-      <small  class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
-    </div>
-    <br>
-<!--    <input type="password" name="repassword" placeholder="Re-enter Password" required  #repassword="ngModel">-->
-
-<!--      <small  class="text-danger" [class.d-none]="(repassword.value == password.value) || repassword.untouched">Password does not match</small>-->
-
-    <br>
-    <br>
-
-    <input type="submit" value="SUBMIT" [disabled]="registerform.form.invalid" >
-    <br>
-    <br>
-    <h4 [routerLink]="['/login']">Existing user ? <u>Login here</u></h4>
+      <input type="submit" value="SUBMIT"  >
+      <br>
+      <br>
+      <h4 [routerLink]="['/login']">Existing user ? <u>Login here</u></h4>
   </form>
     </div>
 <br>

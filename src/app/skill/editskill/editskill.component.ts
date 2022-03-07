@@ -29,14 +29,14 @@ export class EditskillComponent implements OnInit {
     this._service.addSkillToRemote(this.skill).subscribe(
       data=>{
         console.log("data added succesfully");
-        this._router.navigate(['/skill']);
+        this._router.navigate(['/profile']);
       },
       error=>console.log(error)
     )
   }
 
   gotolist() {
-    this._router.navigate(['/skill']);
+    this._router.navigate(['/profile']);
   }
 
 }
