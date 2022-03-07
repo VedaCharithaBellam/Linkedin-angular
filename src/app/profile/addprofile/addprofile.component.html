@@ -8,9 +8,9 @@
       <input type="text" class="form-control" placeholder="Your current occupation" required formControlName="occupation" >
       <input type="text" class="form-control" placeholder="Your current organisation" required formControlName="organisation">
       <input type="text-area" class="form-control" placeholder="About" required formControlName="about">
-      <img  [src]="imageUrl"  onerror ="this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQjblwVQ-GlXCaTJnkev2wwBkrWAZQzUehfQ&usqp=CAU'" alt="" style="border-radius: 50%;margin: 3%;height: 250px;width: 250px">
+      <img  src="{{profile.image}}"  onerror ="this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQjblwVQ-GlXCaTJnkev2wwBkrWAZQzUehfQ&usqp=CAU'" alt="" style="border-radius: 50%;margin: 3%;height: 250px;width: 250px">
 
-      <input type="file" #Image accept="image/*" accept=".jpg, .jpeg, .png" (change)="handleFileInput($event.target.files)" class="form-control" placeholder="image-url" required formControlName="image">
+      <input type="text-area" class="form-control" placeholder="image-url" required formControlName="image">
 
       <br>
       <br>
